@@ -1,3 +1,4 @@
+-- TODO: fix the theme loading issue
 vim.g.have_nerd_font=true
 vim.opt.relativenumber=true
 vim.opt.showmode=false
