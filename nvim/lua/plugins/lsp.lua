@@ -1,8 +1,21 @@
 return {
-	{ 
-		"folke/todo-comments.nvim", 
+	{
+		"folke/todo-comments.nvim",
 		opts = {},
 		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"folke/lazydev.nvim",
+		dependencies = {
+			{ "Bilal2453/luvit-meta", lazy = true},
+		},
+		ft = "lua",
+		opts = {
+			library = {
+				{ 'lazy.nvim', words = { 'lazy', 'LazySpec'} },
+				{ path = 'luvit-meta/library', words = { 'vim%.uv' } },
+			},
+		}
 	},
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	{"williamboman/mason.nvim"},
@@ -25,7 +38,7 @@ return {
 			require('lspconfig').clangd.setup {}
 			require('lspconfig').glsl_analyzer.setup {}
 		end
-	}, -- everything in this table is a spec 
+	},
 	{'neovim/nvim-lspconfig'},  -- same	
 	{"p00f/clangd_extensions.nvim"},
 	{
@@ -37,8 +50,16 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"L3MON4D3/LuaSnip",
 		},
+		opts = function(_, opts)
+			opts.sources = opts.sources or {}
+			table.insert(opts.sources, {
+				name="lazydev",
+				group_index=0,
+			})
+		end,
 		config = function(self, opts)
 			local cmp = require("cmp")
 			vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -50,7 +71,7 @@ return {
 					end,
 				},
 				window = {
-					-- completion = cmp.config.window.bordered(),
+					completion = cmp.config.window.bordered(),
 					-- documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
@@ -58,11 +79,12 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<CR>"] = cmp.mapping.confirm({ select = false}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = "orgmode" },
 				}, {
