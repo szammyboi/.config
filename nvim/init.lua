@@ -32,6 +32,7 @@ autocmd('BufEnter', {
 
 vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>n', ':NvimTreeFocus<CR>')
+vim.keymap.set('n', '<leader>a', ':AerialToggle!<CR>')
 
 vim.g.have_nerd_font=true
 vim.opt.relativenumber=true
