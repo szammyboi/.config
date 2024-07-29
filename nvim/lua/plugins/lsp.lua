@@ -17,14 +17,40 @@ return {
 			},
 		}
 	},
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+	{
+		"nvim-treesitter/nvim-treesitter", 
+		build = ":TSUpdate",
+		opts = {
+			highlight = { enable = true },
+			indent = { enable = true },
+			ensure_installed = {
+				"c",
+				"bash",
+				"html",
+				"javascript",
+				"json",
+				"lua",
+				"markdown",
+				"python",
+				"tsx",
+				"typescript",
+				"vim",
+				"svelte",
+				"astro",
+				"css",
+			}
+		},
+		config = function(self, opts)
+			require('nvim-treesitter.configs').setup(opts)
+		end
+	},
 	{"williamboman/mason.nvim"},
 	{
     'williamboman/mason-lspconfig',
 		config = function(self, opts)
 			require("mason").setup()
 			require("mason-lspconfig").setup {
-				ensure_installed = { "lua_ls", "clangd", "glsl_analyzer" },
+				ensure_installed = { "lua_ls", "clangd", "glsl_analyzer", "svelte", "tsserver", "astro"  },
 				automatic_installation = true
 			}
 
@@ -37,6 +63,9 @@ return {
 			require('lspconfig').lua_ls.setup {}
 			require('lspconfig').clangd.setup {}
 			require('lspconfig').glsl_analyzer.setup {}
+			require('lspconfig').tsserver.setup {}
+			require('lspconfig').svelte.setup {}
+			require('lspconfig').astro.setup {}
 		end
 	},
 	{'neovim/nvim-lspconfig'},  -- same	
