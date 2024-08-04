@@ -2,7 +2,7 @@
 
 local autocmd = vim.api.nvim_create_autocmd
 
-local function is_modded_buffer_open(buffers)
+--[[local function is_modded_buffer_open(buffers)
 	for _, v in pairs(buffers) do
 		if v.name:match("NvimTree_") == nil then
 			return true
@@ -24,7 +24,7 @@ autocmd('BufEnter', {
 		end
 	end
 })
-
+]]
 --[[autocmd('VimEnter', {
 	pattern = "*",
 	command = "NvimTreeOpen | wincmd p"
