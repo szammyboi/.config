@@ -24,6 +24,7 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 			ensure_installed = {
+				"astro",
 				"c",
 				"bash",
 				"html",
@@ -36,8 +37,9 @@ return {
 				"typescript",
 				"vim",
 				"svelte",
-				"astro",
 				"css",
+				"c_sharp",
+				"java",
 			}
 		},
 		config = function(self, opts)
@@ -50,7 +52,8 @@ return {
 		config = function(self, opts)
 			require("mason").setup()
 			require("mason-lspconfig").setup {
-				ensure_installed = { "lua_ls", "clangd", "glsl_analyzer", "svelte", "tsserver", "astro"  },
+				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "tsserver", "markdown_oxide", "omnisharp", "jdtls" },
+
 				automatic_installation = true
 			}
 
@@ -60,12 +63,16 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 			end
 
+			require("lspconfig").mdx_analyzer.setup {}
+			require("lspconfig").markdown_oxide.setup {} 
+			require('lspconfig').astro.setup {}
 			require('lspconfig').lua_ls.setup {}
 			require('lspconfig').clangd.setup {}
 			require('lspconfig').glsl_analyzer.setup {}
 			require('lspconfig').tsserver.setup {}
 			require('lspconfig').svelte.setup {}
-			require('lspconfig').astro.setup {}
+			require('lspconfig').omnisharp.setup {}
+			require('lspconfig').jdtls.setup {}
 		end
 	},
 	{'neovim/nvim-lspconfig'},  -- same	
@@ -116,6 +123,8 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = "orgmode" },
+					--
+					{ name = "neorg" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },

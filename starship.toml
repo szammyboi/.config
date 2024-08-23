@@ -3,41 +3,22 @@
 
 
 format = """
-[](sky)$directory[](bg:peach fg:sky)$git_branch$git_status[](fg:peach bg:lavender)$c$rust$golang[](fg:lavender bg:rosewater)$time[ ](fg:rosewater)
-[❯ ](bold green)"""
+[](bg1)$directory[](bg:bg2 fg:bg1)$git_branch$git_status[](fg:bg2 bg:bg3)$c$rust$golang[](fg:bg3 bg:bg4)$time[ ](fg:bg4)
+[❯ ](bold extra)"""
 
-palette = "catppuccin_mocha"
+palette = "kanagawa"
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[palettes.kanagawa]
+text="#DCD7BA"
+darktext="#1F1F28"
+bg1="#C8C093"
+bg2="#658594"
+bg3="#7AA89F"
+bg4="#FFA066"
+extra="#FF9E3B"
 
 [directory]
-style = "mantle bg:sky"
+style = "darktext bg:bg1"
 format="[$path ]($style)"
 truncation_length=8
 truncation_symbol="…/"
@@ -49,32 +30,32 @@ truncate_to_repo=false
 [git_branch]
 format = "[ $symbol $branch ]($style)"
 symbol = ""
-style = "mantle bg:peach"
+style = "darktext bg:bg2"
 
 [git_status]
-style="mantle bg:peach"
+style="darktext bg:bg2"
 format="[$all_status$ahead_behind ]($style)"
 
 [c]
 symbol = ""
-style = "mantle bg:lavender"
+style = "darktext bg:bg3"
 format = '[ $symbol $name ($version) ]($style)'
 detect_extensions = ['c', 'h', 'cpp']
 commands = [['clang++', '--version'], ['g++', '--version']]
 
 [rust]
 symbol = "🦀"
-style="mantle bg:lavender"
+style="darktext bg:bg3"
 format = "[ $symbol ($version) ]($style)"
 
 [golang]
 symbol=""
-style="mantle bg:lavender"
+style="darktext bg:bg3"
 format = "[ $symbol ($version) ]($style)"
 
 [time]
 disabled = false
 use_12hr=true
 time_format = "%I:%M"
-style = "bg:rosewater fg:mantle"
+style = "bg:bg4 fg:darktext"
 format = '[  $time ]($style)'

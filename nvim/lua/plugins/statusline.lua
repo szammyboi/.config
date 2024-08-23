@@ -3,52 +3,45 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function ()
-			local C = require("catppuccin.palettes").get_palette(flavour)
-			local O = require("catppuccin").options
-			local catppuccin = {}
+			local theme = require("kanagawa.colors").setup().theme
 
-			local transparent_bg = O.transparent_background and "NONE" or C.mantle	
+			local kanagawa = {}
 
-			catppuccin.normal = {
-				a = { bg = C.blue, fg = C.mantle, gui = "bold" },
-				b = { bg = C.surface0, fg = C.blue },
-				c = { bg = transparent_bg, fg = C.text },
+			kanagawa.normal = {
+			  a = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
+			  b = { bg = theme.diff.change, fg = theme.syn.fun },
+			  c = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
 			}
 
-			catppuccin.insert = {
-				a = { bg = C.green, fg = C.base, gui = "bold" },
-				b = { bg = C.surface0, fg = C.green },
+			kanagawa.insert = {
+			  a = { bg = theme.diag.ok, fg = theme.ui.bg },
+			  b = { bg = theme.ui.bg, fg = theme.diag.ok },
 			}
 
-			catppuccin.terminal = {
-				a = { bg = C.green, fg = C.base, gui = "bold" },
-				b = { bg = C.surface0, fg = C.green },
+			kanagawa.command = {
+			  a = { bg = theme.syn.operator, fg = theme.ui.bg },
+			  b = { bg = theme.ui.bg, fg = theme.syn.operator },
 			}
 
-			catppuccin.command = {
-				a = { bg = C.peach, fg = C.base, gui = "bold" },
-				b = { bg = C.surface0, fg = C.peach },
+			kanagawa.visual = {
+			  a = { bg = theme.syn.keyword, fg = theme.ui.bg },
+			  b = { bg = theme.ui.bg, fg = theme.syn.keyword },
 			}
 
-			catppuccin.visual = {
-				a = { bg = C.mauve, fg = C.base, gui = "bold" },
-				b = { bg = C.surface0, fg = C.mauve },
+			kanagawa.replace = {
+			  a = { bg = theme.syn.constant, fg = theme.ui.bg },
+			  b = { bg = theme.ui.bg, fg = theme.syn.constant },
 			}
 
-			catppuccin.replace = {
-				a = { bg = C.red, fg = C.base, gui = "bold" },
-				b = { bg = C.surface0, fg = C.red },
-			}
-
-			catppuccin.inactive = {
-				a = { bg = transparent_bg, fg = C.blue },
-				b = { bg = transparent_bg, fg = C.surface1, gui = "bold" },
-				c = { bg = transparent_bg, fg = C.overlay0 },
+			kanagawa.inactive = {
+			  a = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+			  b = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim, gui = "bold" },
+			  c = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 			}
 
 			require('lualine').setup {
 			  options = {
-				theme = catppuccin,
+				theme = kanagawa,
 				component_separators = '',
 				section_separators = { left = '', right = '' },
 			  },
