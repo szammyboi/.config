@@ -22,33 +22,13 @@ return {
 		end
 	},
 	{
-    "nvim-neorg/neorg",
-		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-		version = "*", -- Pin Neorg to the latest stable release
-		config = function()
-			require("neorg").setup {
-			  load = {
-				["core.defaults"] = {},
-				["core.concealer"] = {},
-				["core.dirman"] = {
-				  config = {
-					workspaces = {
-					  notes = "c:\\notes",
-					},
-					default_workspace = "notes",
-				  },
-				},
-				["core.completion"] = {
-					config = {
-						engine = "nvim-cmp",
-					}
-				},
-				["core.integrations.nvim-cmp"] = {},
-			  },
-			}
-
-			vim.wo.foldlevel = 99
-			vim.wo.conceallevel = 2
-		end
-	}
+	  "lervag/vimtex",
+	  lazy = false,     -- we don't want to lazy load VimTeX
+	  -- tag = "v2.15", -- uncomment to pin to a specific release
+	  init = function()
+		-- VimTeX configuration goes here, e.g.
+		vim.g.vimtex_view_general_viewer = 'okular'
+		vim.g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
+	  end
+	},
 }

@@ -52,7 +52,7 @@ return {
 		config = function(self, opts)
 			require("mason").setup()
 			require("mason-lspconfig").setup {
-				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "tsserver", "markdown_oxide", "omnisharp", "jdtls" },
+				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "tsserver", "markdown_oxide", "omnisharp", "jdtls", "ltex" },
 
 				automatic_installation = true
 			}
@@ -73,6 +73,7 @@ return {
 			require('lspconfig').svelte.setup {}
 			require('lspconfig').omnisharp.setup {}
 			require('lspconfig').jdtls.setup {}
+			require('lspconfig').ltex.setup {}
 		end
 	},
 	{'neovim/nvim-lspconfig'},  -- same	
