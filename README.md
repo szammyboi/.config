@@ -1,1 +1,1 @@
-mvlink %localappdata%/nvim ~/.config/nvim
+mklink %localappdata%/nvim ~/.config/nvim
