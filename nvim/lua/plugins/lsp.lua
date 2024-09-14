@@ -52,7 +52,7 @@ return {
 		config = function(self, opts)
 			require("mason").setup()
 			require("mason-lspconfig").setup {
-				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "tsserver", "markdown_oxide", "omnisharp", "jdtls", "ltex" },
+				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "ts_ls", "markdown_oxide", "omnisharp", "jdtls", "ltex" },
 
 				automatic_installation = true
 			}
@@ -69,7 +69,7 @@ return {
 			require('lspconfig').lua_ls.setup {}
 			require('lspconfig').clangd.setup {}
 			require('lspconfig').glsl_analyzer.setup {}
-			require('lspconfig').tsserver.setup {}
+			require('lspconfig').ts_ls.setup {}
 			require('lspconfig').svelte.setup {}
 			require('lspconfig').omnisharp.setup {}
 			require('lspconfig').jdtls.setup {}
@@ -124,8 +124,6 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = "orgmode" },
-					--
-					{ name = "neorg" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
