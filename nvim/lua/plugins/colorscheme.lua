@@ -10,18 +10,18 @@ return {
 	},
 	{
 		"savq/melange-nvim",
-		lazy = true,
+		lazy = false,
 		priority = 1000,
 		init = function()
-			--vim.cmd([[colorscheme melange]])
+			vim.cmd([[colorscheme melange]])
 		end
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = true,
+		lazy = false,
 		priority = 1000,
 		init = function()
-			vim.cmd([[colorscheme kanagawa]])
+			--vim.cmd([[colorscheme kanagawa]])
 		end
 	}
 }

@@ -101,6 +101,38 @@ return {
 			local cmp = require("cmp")
 			vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+			local luasnip = require("luasnip")
+			local s = luasnip.snippet
+			local t = luasnip.text_node
+			luasnip.add_snippets("all", {
+	     		s("box", {
+				t("\\color{sz_red}\\begin{center}\\fbox{}\\end{center}\\color{sz_dark}"),
+			  }),
+
+			  s("parbox", {
+				t("\\color{sz_red}\\begin{center}\\fbox{\\parbox{\\dimexpr\\linewidth-2\\fboxsep-2\\fboxrule\\relax}{}}\\end{center}\\color{sz_dark}"),
+			  }),
+			  
+			  s("list", {
+				t("\\begin{enumerate}\\item\\end{enumerate}"),
+
+			  }),
+s("equation", {
+				t("\\begin{align}\\end{align}"),
+
+			  }),
+s("integral", {
+				t("\\int_{}^{}"),
+
+			  }),
+				s("section", {
+						t("\\color{sz_blue}\\section{Title}\\color{sz_text}")
+				}),
+				s("subsection", {
+					t("\\color{sz_text}\\subsection{}\\color{sz_dark}")
+				}),
+			})
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
