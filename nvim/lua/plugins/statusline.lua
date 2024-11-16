@@ -3,7 +3,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function ()
-			local theme = require("../palettes/melange")
+			local theme = require("../palettes/kimbox")
 
 			require('lualine').setup {
 			  options = {
