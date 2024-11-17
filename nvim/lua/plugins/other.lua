@@ -1,6 +1,21 @@
 return {
 	{
+		"rachartier/tiny-devicons-auto-colors.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons"
+		},
+		event = "VeryLazy",
+		config = function()
+			require('tiny-devicons-auto-colors').setup()
+		end
+	},
+	{
+		"xiyaowong/transparent.nvim",
+		lazy = false
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			vim.g.loaded_netrw = 1
 			vim.g.loaded_netrwPlugin = 1

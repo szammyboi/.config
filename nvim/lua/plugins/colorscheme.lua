@@ -29,7 +29,12 @@ return {
 		lazy = false,
 		priority = 1000,
 		init = function()
-			--vim.cmd([[colorscheme shado]])
+			local function hl(...)
+				vim.api.nvim_set_hl(0, ...)
+			end
+			vim.cmd([[colorscheme shado]])
+			--hl("ColorColumn", { bg = "#616683" })
+			hl("NonText", { fg = "#616683" })
 		end
 	},
 	{
@@ -37,7 +42,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		init = function()
-			vim.cmd([[colorscheme kimbox]])
+			--vim.cmd([[colorscheme kimbox]])
 		end
 	},
 	{
@@ -46,6 +51,14 @@ return {
 		priority = 1000,
 		init = function()
 			--vim.cmd([[colorscheme kanagawa]])
+		end
+	},
+	{
+		"szammyboi/halloween.nvim",
+		lazy = false,
+		priority = 1000,
+		init = function()
+			--vim.cmd([[colorscheme halloween]])
 		end
 	}
 }

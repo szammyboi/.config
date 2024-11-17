@@ -4,12 +4,12 @@ local grays = palette.a
 local bright = palette.b
 local normal = palette.c
 local dark = palette.d
-
+	
 return {
     normal = {
         a = { bg = grays.com, fg = grays.float, gui = "bold" },
         b = { bg = grays.sel, fg = grays.com },
-        c = { bg = grays.float, fg = grays.com },
+	       c = { bg = grays.float, fg = grays.com },
         y = { bg = grays.ui, fg = grays.float },
     },
     insert = {

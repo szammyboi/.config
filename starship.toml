@@ -6,7 +6,7 @@ format = """
 [](bg1)$directory[](bg:bg2 fg:bg1)$git_branch$git_status[](fg:bg2 bg:bg3)$c$rust$golang[](fg:bg3 bg:bg4)$time[ ](fg:bg4)
 [❯ ](bold extra)"""
 
-palette = "kanagawa"
+palette = "shado"
 
 [palettes.kanagawa]
 text="#DCD7BA"
@@ -16,6 +16,15 @@ bg2="#658594"
 bg3="#7AA89F"
 bg4="#FFA066"
 extra="#FF9E3B"
+
+[palettes.shado]
+text="#e3c7fc"
+darktext="#09090d"
+bg1="#B52A5B"
+bg2="#FF4971"
+bg3="#E9729D"
+bg4="#bd93f9"
+extra="#F18FB0"
 
 [directory]
 style = "darktext bg:bg1"
