@@ -51,3 +51,4 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 require('config.lazy')
+vim.cmd[[colorscheme kimbox]]

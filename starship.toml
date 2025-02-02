@@ -6,7 +6,16 @@ format = """
 [](bg1)$directory[](bg:bg2 fg:bg1)$git_branch$git_status[](fg:bg2 bg:bg3)$c$rust$golang[](fg:bg3 bg:bg4)$time[ ](fg:bg4)
 [❯ ](bold extra)"""
 
-palette = "shado"
+palette = "kimbox"
+
+[palettes.kimbox]
+text="#C2A383"
+darktext="#221A02"
+bg1="#ff5813"
+bg2="#9c1c34"
+bg3="#F79A32"
+bg4="#a06469"
+extra="#FE8019"
 
 [palettes.kanagawa]
 text="#DCD7BA"

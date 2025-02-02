@@ -1,64 +1,32 @@
 return {
 	{
 	    "catppuccin/nvim",
-	    name = "catppuccin",
-	    lazy = true,
-	    priority = 1000,
-	    init = function()
-	    	--vim.cmd([[colorscheme catppuccin]])
-	    end,
+	    name = "catppuccin"
 	},
 	{
-		"savq/melange-nvim",
-		lazy = false,
-		priority = 1000,
-		init = function()
-			--vim.cmd([[colorscheme melange]])
-		end
+		"savq/melange-nvim"
 	},
 	{
-		"Biscuit-Theme/nvim",
-		lazy = false,
-		priority = 1000,
-		init = function()
-			--vim.cmd([[colorscheme biscuit]])
-		end
+		"Biscuit-Theme/nvim"
 	},
 	{
 		"Shadorain/shadotheme",
-		lazy = false,
-		priority = 1000,
 		init = function()
 			local function hl(...)
 				vim.api.nvim_set_hl(0, ...)
 			end
-			vim.cmd([[colorscheme shado]])
-			--hl("ColorColumn", { bg = "#616683" })
+			--vim.cmd([[colorscheme shado]])
+			hl("ColorColumn", { bg = "#616683" })
 			hl("NonText", { fg = "#616683" })
 		end
 	},
 	{
-		"lmburns/kimbox",
-		lazy = false,
-		priority = 1000,
-		init = function()
-			--vim.cmd([[colorscheme kimbox]])
-		end
+		"lmburns/kimbox"
 	},
 	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		init = function()
-			--vim.cmd([[colorscheme kanagawa]])
-		end
+		"rebelot/kanagawa.nvim"
 	},
 	{
-		"szammyboi/halloween.nvim",
-		lazy = false,
-		priority = 1000,
-		init = function()
-			--vim.cmd([[colorscheme halloween]])
-		end
-	}
+		"szammyboi/halloween.nvim"
+	},
 }
