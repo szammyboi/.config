@@ -43,7 +43,8 @@ return {
 				"go",
 				"gosum",
 				"gomod",
-				"gotmpl"
+				"gotmpl",
+				"elixir",
 			}
 		},
 		config = function(self, opts)
@@ -56,7 +57,7 @@ return {
 		config = function(self, opts)
 			require("mason").setup()
 			require("mason-lspconfig").setup {
-				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "ts_ls", "markdown_oxide", "omnisharp", "jdtls", "ltex", "pyright", "gopls" },
+				ensure_installed = { "mdx_analyzer", "astro", "lua_ls", "clangd", "glsl_analyzer", "svelte", "ts_ls", "markdown_oxide", "omnisharp", "jdtls", "ltex", "pyright", "gopls", "elixirls" },
 
 				automatic_installation = true
 			}
@@ -66,6 +67,8 @@ return {
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 			end
+
+			
 
 			require('lspconfig').gopls.setup {}
 			require("lspconfig").mdx_analyzer.setup {}
@@ -80,6 +83,7 @@ return {
 			require('lspconfig').jdtls.setup {}
 			require('lspconfig').ltex.setup {}
 			require('lspconfig').pyright.setup {}
+			require('lspconfig').elixirls.setup{}
 		end
 	},
 	{'neovim/nvim-lspconfig'},  -- same	

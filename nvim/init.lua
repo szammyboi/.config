@@ -50,5 +50,8 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
+vim.lsp.config('elixirls', {
+	cmd = { "C:/dev/tools/elixir-ls/language_server.bat" };
+})
 require('config.lazy')
 vim.cmd[[colorscheme kimbox]]
